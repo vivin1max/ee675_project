@@ -203,7 +203,7 @@ FINAL_SUBMISSION/
 │
 ├── results/
 │   ├── final_results.csv               # Performance metrics
-│   └── plots/                          # 5 publication plots (300 DPI)
+│   └── plots/                          # 5 plots 
 │       ├── rnn_ablations_side_by_side.png
 │       ├── dl_architectures_cer_wer.png
 │       ├── dl_architectures_params_vs_wer.png
