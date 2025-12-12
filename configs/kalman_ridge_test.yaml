@@ -1,0 +1,12 @@
+model:
+  type: kalman_ridge
+  latent_dim: 32
+  ridge_alpha: 0.001
+  use_pca: true
+
+data:
+  preprocessed_path: data/processed/competition_data.pkl
+  split: train/test/holdout
+
+logging:
+  output_dir: results/kalman_ridge_test

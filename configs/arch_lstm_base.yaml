@@ -1,0 +1,52 @@
+experiment_name: arch_lstm_base
+
+data:
+  preprocessed_path: data/processed/competition_data.pkl
+  n_input_features: 256
+  n_classes: 41
+
+model:
+  type: lstm
+  params:
+    neural_dim: 256
+    n_classes: 41
+    hidden_dim: 1024
+    layer_dim: 5
+    nDays: 24
+    dropout: 0.40
+    strideLen: 4
+    kernelLen: 32
+    gaussianSmoothWidth: 2.0
+    bidirectional: true
+
+training:
+  seed: 0
+  use_cuda: true
+  batch_size: 8
+  num_epochs: 100
+  num_workers: 0
+  pin_memory: true
+  lr_start: 0.02
+  lr_end: 0.02
+  betas: [0.9, 0.999]
+  eps: 0.1
+  weight_decay: 1.0e-5
+  scheduler:
+    type: constant
+    params: {}
+  white_noise_sd: 0.8
+  constant_offset_sd: 0.2
+  coordinated_dropout: 0.0
+  fastemit_lambda: 0.0
+  grad_clip: 1.0
+  output_dir: experiments/arch_lstm_base
+  eval_interval: 1
+  save_interval: 10
+  use_wandb: true
+  wandb_project: speech-bci-overfitfix
+logging:
+  log_interval: 10
+  use_tensorboard: true
+decoding:
+  beam_size: 10
+  blank_index: 0

@@ -1,0 +1,11 @@
+model:
+  type: kalman_baseline
+  latent_dim: 16
+  use_pca: true
+
+data:
+  preprocessed_path: data/processed/competition_data.pkl
+  split: train/test/holdout
+
+logging:
+  output_dir: results/kalman_baseline

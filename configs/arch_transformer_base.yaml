@@ -1,0 +1,56 @@
+experiment_name: arch_transformer_base
+
+data:
+  preprocessed_path: data/processed/competition_data.pkl
+  n_input_features: 256
+  n_classes: 41
+
+model:
+  type: transformer
+  params:
+    neural_dim: 256
+    n_classes: 41
+    hidden_dim: 1024
+    layer_dim: 6
+    nDays: 24
+    dropout: 0.10
+    strideLen: 4
+    kernelLen: 32
+    gaussianSmoothWidth: 2.0
+    nhead: 8
+    dim_feedforward: 2048
+
+training:
+  seed: 0
+  use_cuda: true
+  batch_size: 8
+  num_epochs: 100
+  num_workers: 0
+  pin_memory: true
+  lr_start: 0.0005
+  lr_end: 0.00001
+  betas: [0.9, 0.98]
+  eps: 1.0e-9
+  weight_decay: 5.0e-5
+  scheduler:
+    type: linear
+    params:
+      start_factor: 1.0
+      end_factor: 0.02
+      total_iters: 10000
+  white_noise_sd: 0.8
+  constant_offset_sd: 0.2
+  coordinated_dropout: 0.0
+  fastemit_lambda: 0.0
+  grad_clip: 1.0
+  output_dir: experiments/arch_transformer_base
+  eval_interval: 1
+  save_interval: 10
+  use_wandb: true
+  wandb_project: speech-bci-overfitfix
+logging:
+  log_interval: 10
+  use_tensorboard: true
+decoding:
+  beam_size: 10
+  blank_index: 0

@@ -1,0 +1,55 @@
+experiment_name: rnn_best_combo
+
+data:
+  preprocessed_path: data/processed/competition_data.pkl
+  n_input_features: 256
+  n_classes: 41
+
+model:
+  type: baseline_gru
+  params:
+    neural_dim: 256
+    n_classes: 41
+    hidden_dim: 768
+    layer_dim: 4
+    nDays: 24
+    dropout: 0.5
+    strideLen: 4
+    kernelLen: 32
+    gaussianSmoothWidth: 2.0
+    bidirectional: true
+
+training:
+  seed: 0
+  use_cuda: true
+  batch_size: 8
+  num_epochs: 100
+  num_workers: 0
+  pin_memory: true
+  lr_start: 0.01
+  lr_end: 0.001
+  betas: [0.9, 0.999]
+  eps: 0.1
+  weight_decay: 5.0e-5
+  scheduler:
+    type: linear
+    params:
+      start_factor: 1.0
+      end_factor: 0.1
+      total_iters: 10000
+  white_noise_sd: 1.0
+  constant_offset_sd: 0.3
+  coordinated_dropout: 0.1
+  fastemit_lambda: 0.01
+  grad_clip: 1.0
+  output_dir: experiments/rnn_best_combo_overfitfix
+  eval_interval: 1
+  save_interval: 10
+  use_wandb: true
+  wandb_project: speech-bci-overfitfix
+logging:
+  log_interval: 10
+  use_tensorboard: true
+decoding:
+  beam_size: 10
+  blank_index: 0

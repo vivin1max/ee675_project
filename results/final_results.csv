@@ -1,0 +1,11 @@
+experiment_name,experiment_path,model_name,best_CER,final_CER,best_WER,final_WER,best_PER,final_PER,training_time_hours,num_epochs,latent_dim,em_iterations,lr_schedule,dropout,hidden_dim,layer_dim,fastemit,coord_dropout,layernorm,ridge_alpha,notes
+arch_lstm_base,experiments\arch_lstm,lstm,0.178201477,0.178201477,,0.349945435,,,5.717918214,100,,,linear,0.4,1024,5,FALSE,FALSE,FALSE,,
+arch_transformer_base,experiments\arch_transformer,transformer,0.240477075,0.242788164,,0.464350673,,,1.829334803,100,,,linear,0.1,1024,5,FALSE,FALSE,FALSE,,
+rnn_baseline,experiments\rnn_baseline,baseline_gru,0.3193,0.3193,,0.6126,,,10.53954245,100,,,linear,0.5,768,4,FALSE,FALSE,FALSE,,
+rnn_step_lr,experiments\rnn_step_lr,baseline_gru,0.257026124,0.257149932,,0.510367406,,,4.56983683,100,,,step,0.4,1024,5,FALSE,FALSE,FALSE,,
+rnn_fastemit,experiments\rnn_fastemit,baseline_gru,0.31938426,0.319838224,,0.612222626,,,3.019688459,100,,,linear,0.5,768,4,TRUE,FALSE,FALSE,,
+rnn_best_combo,experiments\rnn_best_combo,baseline_gru,0.329165119,0.329165119,,0.618042925,,,2.978387384,100,,,linear,0.5,768,4,TRUE,TRUE,FALSE,,
+rnn_layernorm,experiments\rnn_layernorm,baseline_gru,0.334076183,0.334076183,,0.630592943,,,2.980898247,100,,,linear,0.5,768,4,FALSE,FALSE,FALSE,,
+arch_transformer_regularised,experiments\arch_transformer_regularised,transformer,0.36197433,0.36197433,,0.658603128,,,0.723751876,100,,,linear,0.2,512,3,FALSE,FALSE,FALSE,,
+arch_lstm_regularised,experiments\arch_lstm_regularised,lstm,0.371053609,0.372786926,,0.664059658,,,3.77847588,100,,,linear,0.5,768,4,FALSE,FALSE,FALSE,,
+rnn_coord_dropout,experiments\rnn_coord_dropout,baseline_gru,0.38145351,0.38145351,,0.680247363,,,3.218285885,100,,,linear,0.5,768,4,FALSE,TRUE,FALSE,,
